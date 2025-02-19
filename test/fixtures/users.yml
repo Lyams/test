@@ -1,0 +1,21 @@
+one:
+  name: FirstName
+  surname: FirstSurname
+  patronymic: FirstPatronymic
+  email: First@mail.test
+  age: 1
+  nationality: FirstNationality
+  country: FirstCountry
+  gender: FirstGender
+  full_name: FullName
+
+two:
+  name: SecondName
+  surname: SecondSurname
+  patronymic: SecondPatronymic
+  email: second@mail.test
+  age: 2
+  nationality: SecondNationality
+  country: SecondCountry
+  gender: SecondGender
+  full_name: FullName
