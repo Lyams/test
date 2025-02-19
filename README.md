@@ -1,24 +1,22 @@
-# README
+1. Сделано: `app/interactions/users/create.rb`.
+3. Связи поправлены.
+4. Развернуто приложение Rails.
+5. Тесты в Rails приложении написаны, добалены фикстуры. Тест для интерактора `test/interactors/users/create_test.rb`
+6. Сделано.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2. Исправление опечатки в названии модели:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2.1. Переименование класса Skil в Skill и связанного с моделью кода:
+2.1.1. Если таблица БД не используется во внешних сервисах и нет других ограничений (зависит от СУБД, по умолчанию принмиаем PostgreSQL - там переименование таблицы происходит очень быстро):
+- Переименовываем с помощью миграции таблицу; возможно с использованием, например, FeatureToggle - чтобы не было ошибок из-за временной разницы между сборкой приложения и миграцией в БД.
+2.1.2. Если есть использование во сторонних сервисах или используем СУБД, которая будет долго переименовывать таблицу и мы не можем себе этого пока что позволить в этой итерации проекта:
+2.1.2.1. Создаем вью и настраиваем модель для работы с ним
+2.1.2.2. Либо создаем алиас (если позволяет СУБД);
+2.1.2.3. либо указываем в модели Skill `self.table_name = "skils"` - Я бы сколнялся к этому варианту.
+2.2. Добавляем в Inflections:
+```ruby
+# config/initializers/inflections.rb
+ActiveSupport::Inflector.inflections do |inflect|
+  inflect.irregular 'skil', 'skills'
+end
+```
