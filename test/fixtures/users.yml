@@ -8,6 +8,8 @@ one:
   country: FirstCountry
   gender: FirstGender
   full_name: FullName
+  interests: one, two
+  skills: one, two
 
 two:
   name: SecondName
